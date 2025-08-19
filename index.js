@@ -81,4 +81,17 @@ program
       }
    });
 
+program
+   .command('done <id>')
+   .description('Mark todo as done with ID')
+   .action((id) => {
+      let todos = readTodos();
+      let todo = todos.find((todo) => todo.id == parseInt(id));
+      if (todo) {
+         todo.done = true;
+         writeTodos(todos);
+         listTodos(todos);
+      } else console.log(chalk.yellow('No todo found.'));
+   });
+
 program.parse(process.argv);
