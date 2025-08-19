@@ -9,7 +9,6 @@ program.version('1.0.1');
 
 let fileName = 'todo.json';
 
-
 function readTodos() {
    let data = fs.readFileSync(fileName, 'utf-8');
    if (data) return JSON.parse(data);
@@ -55,6 +54,14 @@ program
       listTodos(todos);
    });
 
+program
+   .command('delete <id>')
+   .description('Delete todo with ID')
+   .action((id) => {
+      let todos = readTodos();
+      todos = todos.filter((todo) => todo.id !== parseInt(id));
+      writeTodos(todos);
+      listTodos(todos);
+   });
 
 program.parse(process.argv);
-
