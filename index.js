@@ -65,7 +65,7 @@ program
    });
 
 program
-   .command('update <id> <task>')
+   .command('update <id> <new-task>')
    .description('Update todo task with ID')
    .action((id, task) => {
       let todos = readTodos();
