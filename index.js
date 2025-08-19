@@ -94,4 +94,16 @@ program
       } else console.log(chalk.yellow('No todo found.'));
    });
 
+program
+   .command('list')
+   .description('List all todos')
+   .action(() => {
+      const todos = readTodos();
+      if (!todos) {
+         console.log(chalk.yellow('No todo present.'));
+      } else {
+         listTodos(todos);
+      }
+   });
+
 program.parse(process.argv);
