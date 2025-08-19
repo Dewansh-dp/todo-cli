@@ -64,4 +64,21 @@ program
       listTodos(todos);
    });
 
+program
+   .command('update <id> <task>')
+   .description('Update todo task with ID')
+   .action((id, task) => {
+      let todos = readTodos();
+      let todo = todos.find((todo) => todo.id == id);
+      /*  todo here holds the reference to the object in the todos array
+          so if we make changes to todo it will reflect in todos array */
+      if (todo) {
+         todo.task = task;
+         writeTodos(todos);
+         listTodos(todos);
+      } else {
+         console.log(chalk.yellow('No todo found.'));
+      }
+   });
+
 program.parse(process.argv);
