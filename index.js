@@ -15,5 +15,9 @@ function readTodos() {
    if (data) return JSON.parse(data);
    console.log(chalk.yellow('No todo found.'));
 }
+function writeTodos(todos) {
+   const data = JSON.stringify(todos, null, 3);
+   fs.writeFileSync(fileName, data);
+}
 program.parse(process.argv);
 
