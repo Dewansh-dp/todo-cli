@@ -19,7 +19,6 @@ function writeTodos(todos) {
    const data = JSON.stringify(todos, null, 3);
    fs.writeFileSync(fileName, data);
 }
-
 function listTodos(todos) {
    if (todos.length === 0) {
       console.log(chalk.yellow('No todo found.'));
@@ -39,5 +38,23 @@ function listTodos(todos) {
       console.log(table.toString());
    }
 }
+
+program
+   .command('add <task>')
+   .description('Create new todo')
+   .action((task) => {
+      const id = parseInt(Date.now().toString().slice(8));
+      const newTodo = {
+         id,
+         task,
+         done: false,
+      };
+      let todos = readTodos();
+      todos.push(newTodo);
+      writeTodos(todos);
+      listTodos(todos);
+   });
+
+
 program.parse(process.argv);
 
