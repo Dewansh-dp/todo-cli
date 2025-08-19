@@ -10,5 +10,10 @@ program.version('1.0.1');
 let fileName = 'todo.json';
 
 
+function readTodos() {
+   let data = fs.readFileSync(fileName, 'utf-8');
+   if (data) return JSON.parse(data);
+   console.log(chalk.yellow('No todo found.'));
+}
 program.parse(process.argv);
 
