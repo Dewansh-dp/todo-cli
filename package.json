@@ -1,0 +1,19 @@
+{
+   "name": "todo-cli",
+   "version": "1.0.0",
+   "main": "index.js",
+   "type": "module",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "description": "This is a todo CLI application",
+   "dependencies": {
+      "chalk": "^5.6.0",
+      "cli-table3": "^0.6.5",
+      "commander": "^14.0.0"
+   }
+}
