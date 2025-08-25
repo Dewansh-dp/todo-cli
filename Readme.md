@@ -92,3 +92,11 @@ todo update 1 "Buy groceries and milk"
 ```bash
 todo list
 ```
+
+## File Storage
+
+Todos are stored in a JSON file named `todos.json`. Each todo entry includes:
+
+-  `id`: Unique identifier for the todo
+-  `task`: Description of the task
+-  `done`: Boolean indicating if the task is completed
